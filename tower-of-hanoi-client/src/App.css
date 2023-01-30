@@ -1,0 +1,63 @@
+.display {
+  text-align: center;
+}
+.game {
+  display: flex;
+  flex: 1;
+  margin: 1%;
+  justify-content: center;
+}
+
+.tower {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 5em;
+  background-color: rgb(122, 122, 122);
+  min-width: 200px;
+  min-height: 300px;
+  justify-content: end;
+}
+
+.ring {
+  background-color: black;
+  border: solid white;
+  padding: 5px;
+  text-align: center;
+  padding-inline: 10px;
+  border-radius: 5em;
+  margin-inline: auto;
+}
+
+@keyframes flash {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+.flash {
+  animation-name: flash;
+}
+
+.invalid-selection {
+  animation-duration: 1s;
+}
+
+.ring.active {
+  background-color: gray;
+}
+
+.high-contrast,
+.watermelon {
+  background-color: lightcoral;
+  color: greenyellow;
+  font-weight: 900;
+  font-size: large;
+  border: 3px solid greenyellow;
+}
