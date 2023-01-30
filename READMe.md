@@ -1,5 +1,13 @@
 # Basic Tower of Hanoi Game in React
 
-- using high contrast colors for design
-- will update css later for a better color scheme
-- may add a solving function in the future
+The goal is to move all rings/disks from one tower to another. There are only 3 rules:
+
+- You can only move one disk at a time
+- You can only place a disk on a disk that is larger than itself or on an empty tower
+- You can only move the top disk of any tower
+
+## Tasks
+
+- [ ] update css
+- [ ] deploy on GitHub Pages
+- [ ] implement solver
