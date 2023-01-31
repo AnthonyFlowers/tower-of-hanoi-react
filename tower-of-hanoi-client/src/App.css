@@ -1,10 +1,11 @@
 .display {
   text-align: center;
 }
+
 .game {
   display: flex;
   flex: 1;
-  margin: 1%;
+  margin-inline: 5%;
   justify-content: center;
 }
 
@@ -12,52 +13,92 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin: 5em;
+  margin: 2em;
+  padding: 1em;
   background-color: rgb(122, 122, 122);
-  min-width: 200px;
-  min-height: 300px;
+  min-width: 10em;
+  max-width: 15em;
+  height: 20em;
   justify-content: end;
+  border-radius: 1em;
+  transition: background-color 0.25s ease;
 }
 
 .ring {
   background-color: black;
   border: solid white;
-  padding: 5px;
+  padding: 0.3em;
+  margin: 2px;
   text-align: center;
-  padding-inline: 10px;
-  border-radius: 5em;
+  padding-inline: 0.75em;
+  border-radius: 6em;
   margin-inline: auto;
 }
 
-@keyframes flash {
-  0%,
-  50%,
-  100% {
-    opacity: 1;
-  }
-  25%,
-  75% {
-    opacity: 0;
-  }
+.tower-win {
+  background-color: green !important;
 }
 
-.flash {
-  animation-name: flash;
+.text {
+  margin-inline: auto;
+  max-width: 400px;
 }
 
-.invalid-selection {
+.invalid {
   animation-duration: 1s;
+  background-color: rgb(153, 51, 51);
 }
 
 .ring.active {
-  background-color: gray;
+  background-color: rgb(199, 199, 199);
 }
 
-.high-contrast,
-.watermelon {
-  background-color: lightcoral;
-  color: greenyellow;
-  font-weight: 900;
-  font-size: large;
-  border: 3px solid greenyellow;
+.controls {
+  margin-inline: 2em;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px #999;
+}
+.button:active {
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
+}
+
+.btn-piece-count {
+  margin-left: 10px;
+  background-color: #00f;
+  border-radius: 20px 0px 0px 20px;
+}
+.btn-piece-count:hover {
+  background-color: rgb(75, 75, 255);
+}
+.btn-piece-count:active {
+  background-color: #020aff;
+}
+
+.input-piece-count {
+  width: 30px;
+  padding: 11px;
+  border-radius: 0 20px 20px 0;
+  transition: background-color 0.25s ease;
+}
+
+.button.red {
+  background-color: #f00;
+}
+.button.red:hover {
+  background-color: rgb(255, 75, 75);
+}
+.button.red:active {
+  background-color: #ff0a02;
 }

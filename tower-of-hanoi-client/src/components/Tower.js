@@ -1,42 +1,47 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Ring from "./Ring";
 
-export default function Tower({ tower, selectedTowers, setSelectedTowers }) {
+export default function Tower({
+  tower,
+  selectedTowers,
+  setSelectedTowers,
+  ringCount,
+}) {
   const [invalid, setInvalid] = useState(false);
-
-  function flashTower() {
-    setInvalid(true);
-    console.log("tower flash");
-    setTimeout(() => {
-      setInvalid(false);
-      console.log("no flash");
-    }, 1000);
-  }
 
   function setActive() {
     let nextTowers = selectedTowers;
+    let nextInvalid = nextTowers.length === 0 && tower.rings.length === 0;
     if (nextTowers.indexOf(tower) === 0 && nextTowers.length === 1) {
       nextTowers = [];
-      console.log("de-selected");
     }
-    if (nextTowers.length === 0 && tower.rings.length === 0) {
-      console.log("empty tower not selecting");
-      flashTower();
-    } else if (nextTowers.length <= 1 && nextTowers.indexOf(tower) < 0) {
+    if (
+      !nextInvalid &&
+      nextTowers.length <= 1 &&
+      nextTowers.indexOf(tower) < 0
+    ) {
       nextTowers = [...selectedTowers];
       nextTowers.push(tower);
-    } else {
-      console.log("did not add tower to selected");
     }
+    setInvalid(nextInvalid);
     setSelectedTowers(nextTowers);
-    console.log(nextTowers);
+    setTimeout(() => {
+      setInvalid(false);
+    }, 500);
   }
 
   return (
     <div
-      className={`tower${invalid ? " invalid flash" : ""}`}
+      className={`tower${invalid ? " invalid" : ""}${
+        tower.rings.length === ringCount && tower.id !== 1 ? " tower-win" : ""
+      }`}
       onClick={setActive}
     >
+      {tower.rings.length === ringCount && tower.id !== 1 ? (
+        <span className="text">Nice Job!</span>
+      ) : (
+        ""
+      )}
       {tower.rings.map((r, i) => {
         return (
           <Ring
